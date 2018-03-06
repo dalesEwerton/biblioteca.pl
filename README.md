@@ -19,6 +19,7 @@ Uma implementação, com dados persistentes, de um sistema de biblioteca que per
 
 * Dales Ewerton Lopes Fragoso.
 * [Insiram o nome aqui].
+* Thaynnara Raiany Uchôa Gonçalves.
 * [Em ordem alfabética guys].
 
 #Divisão de Tarefas.
