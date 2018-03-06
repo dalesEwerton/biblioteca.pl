@@ -1,10 +1,10 @@
-#Biblioteca PROLOG
+# Biblioteca PROLOG
 
 *Projeto da disciplina Aplicações de Paradigmas de Linguagens de Programação*
 *2017.2*
 *DSC - UFCG*
 
-#Descrição
+# Descrição
 
 Uma implementação, com dados persistentes, de um sistema de biblioteca que permite ao usuário:
 
@@ -15,14 +15,13 @@ Uma implementação, com dados persistentes, de um sistema de biblioteca que per
 * Listar livros alugados.
 * Remover livros do sistema.
 
-#Equipe
+# Equipe
 
 * Dales Ewerton Lopes Fragoso.
-* [Insiram o nome aqui].
+* Igor ...
 * Thaynnara Raiany Uchôa Gonçalves.
-* [Em ordem alfabética guys].
 
-#Divisão de Tarefas.
+# Divisão de Tarefas.
 
 * Adicionar livros ao sistema - Thaynnara.
 * Alugar livros - Thaynnara.

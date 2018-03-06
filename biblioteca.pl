@@ -10,10 +10,27 @@ adicionaAlugado(Titulo):-
 	adicionaLivro(Titulo,Autor,Editora,alugado),
 	excluiLivro(Titulo,disponivel), !.
 
+devolveLivro(Titulo):-
+	livro(Titulo,Autor,Editora,D),
+	D == alugado,
+	adicionaLivro(Titulo,Autor,Editora,disponivel),
+	excluiLivro(Titulo,alugado).
+
+listaLivrosDisponiveis:-
+	livro(Titulo,Autor,Editora,disponivel),
+	format('Livro = ~w', [Titulo]),
+	format('  Autor = ~w', [Autor]),
+	format('  Editora = ~w', [Editora]),
+	nl,nl.
+
 salva:-
 	tell('./data/livros.pl'),
 	listing(livro),
 	told.
+
+acao(0):-
+	writeln("Programa finalizado"),
+	salva.
 
 acao(1):-
 	write('Digite o nome do livro: '),
@@ -35,3 +52,17 @@ acao(2):-
 	salva,
 	writeln('Livro alugado com sucesso'),
 	nl.
+
+acao(3):-
+	writeln('Digite o nome do livro.'),
+	read(Titulo),
+	devolveLivro(Titulo),
+	salva,
+	writeln('Livro devolvido com sucesso'),
+	nl.
+
+acao(4):-
+	listaLivrosDisponiveis.
+
+acao(X):-
+	writeln("Opção inválida, tente novamente.").
