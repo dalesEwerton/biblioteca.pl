@@ -1,4 +1,4 @@
-carregaArquivo:-
+﻿carregaArquivo:-
 	consult('./data/livros.pl'). 
 
 adicionaLivro(Titulo,Autor,Editora,Estado):-
@@ -15,9 +15,20 @@ devolveLivro(Titulo):-
 	D == alugado,
 	adicionaLivro(Titulo,Autor,Editora,disponivel),
 	excluiLivro(Titulo,alugado).
+	
+excluiLivro(Titulo,Estado):-
+	retract(livro(Titulo,_,_,Estado)).
 
 listaLivrosDisponiveis:-
 	livro(Titulo,Autor,Editora,disponivel),
+	format('Livro = ~w', [Titulo]),
+	format('  Autor = ~w', [Autor]),
+	format('  Editora = ~w', [Editora]),
+	nl,nl.
+
+
+listaLivrosAlugados:-
+	livro(Titulo,Autor,Editora,alugado),
 	format('Livro = ~w', [Titulo]),
 	format('  Autor = ~w', [Autor]),
 	format('  Editora = ~w', [Editora]),
@@ -43,7 +54,7 @@ acao(1):-
 	salva,
 	nl,
 	writeln('Livro adicionado com sucesso'),
-	nl.
+	nl, menu.
 
 acao(2):-
 	writeln('Digite o nome do livro.'),
@@ -51,7 +62,7 @@ acao(2):-
 	adicionaAlugado(Titulo),
 	salva,
 	writeln('Livro alugado com sucesso'),
-	nl.
+	nl, menu.
 
 acao(3):-
 	writeln('Digite o nome do livro.'),
@@ -59,10 +70,39 @@ acao(3):-
 	devolveLivro(Titulo),
 	salva,
 	writeln('Livro devolvido com sucesso'),
-	nl.
+	nl, menu.
 
 acao(4):-
-	listaLivrosDisponiveis.
+	listaLivrosDisponiveis,
+	menu.
+
+acao(5):-
+	listaLivrosAlugados,
+	menu.
 
 acao(X):-
-	writeln("Opção inválida, tente novamente.").
+	writeln("Opção inválida, tente novamente."),
+	menu.
+
+menu:-
+	
+	nl,
+	writeln('Bem-Vindo.'),
+	writeln('Menu de opcoes:'),
+	writeln('1-Adicionar livro a biblioteca'),
+	writeln('2-Alugar livro'),
+	writeln('3-Devolve Livro'),
+	writeln('4-Lista livros disponiveis'),
+	writeln('5-Lista livros alugados'),
+	writeln('Digite 0 para sair'),
+	read(Resposta),nl,
+	acao(Resposta).
+	
+start:-
+	carregaArquivo,
+	menu.
+	
+:-initialization main.
+main:-
+	
+	start.

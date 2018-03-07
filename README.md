@@ -1,4 +1,4 @@
-# Biblioteca PROLOG
+﻿# Biblioteca PROLOG
 
 *Projeto da disciplina Aplicações de Paradigmas de Linguagens de Programação*
 *2017.2*
@@ -18,7 +18,7 @@ Uma implementação, com dados persistentes, de um sistema de biblioteca que per
 # Equipe
 
 * Dales Ewerton Lopes Fragoso.
-* Igor ...
+* Igor Dantas Lucena.
 * Thaynnara Raiany Uchôa Gonçalves.
 
 # Divisão de Tarefas.
