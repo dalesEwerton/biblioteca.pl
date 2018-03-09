@@ -22,11 +22,12 @@ excluiLivro(Titulo, Estado):-
 
 
 listaLivrosDisponiveis:-
+    consult('./data/livros.pl'),
     livro(Titulo,Autor,Editora,disponivel),
     format('Livro = ~w', [Titulo]),
     format('  Autor = ~w', [Autor]),
     format('  Editora = ~w', [Editora]),
-    nl,nl.
+    nl, nl.
 
 
 listaLivrosAlugados:-
@@ -42,8 +43,7 @@ salva:-
     told.
 
 acao(0):-
-    writeln("Programa finalizado"),
-    salva, nl.
+    writeln("Programa finalizado").
 
 acao(1):-
     write('Digite o nome do livro: '),
@@ -56,7 +56,7 @@ acao(1):-
     salva,
     nl,
     writeln('Livro adicionado com sucesso'),
-    nl, menu.
+    nl.
 
 acao(2):-
     writeln('Digite o nome do livro.'),
@@ -64,7 +64,7 @@ acao(2):-
     adicionaAlugado(Titulo),
     salva,
     writeln('Livro alugado com sucesso'),
-    nl, menu.
+    nl.
 
 acao(3):-
     writeln('Digite o nome do livro.'),
@@ -72,15 +72,13 @@ acao(3):-
     devolveLivro(Titulo),
     salva,
     writeln('Livro devolvido com sucesso'),
-    nl, menu.
+    nl.
 
 acao(4):-
-    listaLivrosDisponiveis,
-    menu.
+    listaLivrosDisponiveis.
 
 acao(5):-
-    listaLivrosAlugados,
-    menu.
+    listaLivrosAlugados.
 
 acao(6):-
     writeln('Digite o nome do livro.'),
@@ -88,26 +86,24 @@ acao(6):-
     writeln('Digite o status do livro.("disponivel", "alugado")'),
     read(Estado),
     excluiLivro(Titulo, Estado),
-    nl, menu.
-
-acao(X):-
-    writeln("Opção inválida, tente novamente."),
-    menu.
+    nl.
 
 menu:-
     
     nl,
     writeln('Bem-Vindo.'),
+    repeat,
     writeln('Menu de opcoes:'),
     writeln('1-Adicionar livro a biblioteca'),
     writeln('2-Alugar livro'),
     writeln('3-Devolve Livro'),
     writeln('4-Lista livros disponiveis'),
     writeln('5-Lista livros alugados'),
-    writeln('6-Remover livro da biblioteca'),
+    writeln('6-Remover um livro do sistema'),
     writeln('Digite 0 para sair'),
     read(Resposta),nl,
-    acao(Resposta).
+    acao(Resposta),
+    Resposta =:= 0, !.
     
 start:-
     carregaArquivo,
@@ -117,4 +113,3 @@ start:-
 main:-
     
     start.
-
