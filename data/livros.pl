@@ -1,6 +1,5 @@
 :- dynamic livro/4.
 
-livro("Crepusculo", "Lua", "Cheia", alugado).
-livro("Qualquer ", "JSADKJ", "Lua", disponivel).
-livro("50 tons de exercicios universitarios", "Lulu", "UFCG", disponivel).
+livro("Algebra Vetorial Vol1.", "Steinbruch", "Antiga", disponivel).
+livro("Calculo Vol. 1", "Thomas", "Antiga", disponivel).
 

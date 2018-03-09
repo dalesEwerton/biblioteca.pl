@@ -22,7 +22,6 @@ excluiLivro(Titulo, Estado):-
 
 
 listaLivrosDisponiveis:-
-    consult('./data/livros.pl'),
     livro(Titulo,Autor,Editora,disponivel),
     format('Livro = ~w', [Titulo]),
     format('  Autor = ~w', [Autor]),
